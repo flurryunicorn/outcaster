@@ -11,7 +11,7 @@ export const buttonStyles = {
                 color: "#F0F0F0",
                 border: "1px solid rgba(245, 58, 238, 0.4)",
                 backdropFilter: "blur(5px)",
-                borderRadius: "20px",
+                borderRadius: "full",
                 _hover: {
                     filter: "brightness(130%)"
                 },

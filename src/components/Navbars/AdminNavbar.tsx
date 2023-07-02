@@ -96,6 +96,7 @@ export default function AdminNavbar(props) {
             pt="8px"
             top="18px"
             w="80vw"
+            zIndex={100}
         >
             <Flex w="100%" alignItems="center" justifyContent={"space-between"}>
                 <HStack>
