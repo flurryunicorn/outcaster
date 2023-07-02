@@ -26,6 +26,8 @@ const Page404 = () => {
             exit={{ opacity: 0 }}
             flexDirection="column"
             textAlign="center"
+            textColor={"#FFF"}
+            height={"100vh"}
         >
             <Heading fontSize="5em">Page Not Found</Heading>
             <VStack gap={3} pt={2}>

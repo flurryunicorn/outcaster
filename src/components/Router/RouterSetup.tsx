@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 
 import Page404 from "pages/404"
 
@@ -10,6 +10,7 @@ const RouterSetup = () => {
             {routes.map((routeProps) => (
                 <Route {...routeProps} key={routeProps.path as string} />
             ))}
+            <Route path="/" element={<Navigate to="/index" replace />} />
             <Route path="*" element={<Page404 />} />
         </Routes>
     )
