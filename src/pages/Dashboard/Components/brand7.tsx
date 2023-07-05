@@ -7,7 +7,7 @@ import LinkedinIcon from "../../../assets/img/linkedin.png"
 const Brand7 = () => {
     return (
         <>
-            <Stack mt={"80px"}>
+            <Stack mt={"20px"}>
                 <Flex flexDirection={"column"} h={"500px"}>
                     <div
                         style={{
