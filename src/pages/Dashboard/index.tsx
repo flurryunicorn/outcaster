@@ -4,6 +4,7 @@ import Brand3 from "./Components/brand3"
 import Brand4 from "./Components/brand4"
 import Brand5 from "./Components/brand5"
 import Brand6 from "./Components/brand6"
+import Brand7 from "./Components/brand7"
 
 const Dashboard = () => {
     return (
@@ -14,6 +15,7 @@ const Dashboard = () => {
             <Brand4 />
             <Brand5 />
             <Brand6 />
+            <Brand7 />
         </>
     )
 }

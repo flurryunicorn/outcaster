@@ -8,7 +8,7 @@ import {
     SimpleGrid
 } from "@chakra-ui/react"
 import ChakraCarousel from "../../../components/ChakraCarousel"
-import video2 from "../../../assets/video2.mp4"
+import video1 from "../../../assets/video.mp4"
 import brandText2 from "../../../assets/img/brandText2.png"
 import hero from "../../../assets/img/hero.png"
 import CarouselItem from "./CarouselItem"
@@ -43,11 +43,13 @@ const Brand6 = () => {
                         <video
                             autoPlay
                             loop
-                            height={"100%"}
-                            width={"100%"}
-                            style={{ objectFit: "cover" }}
+                            style={{
+                                objectFit: "cover",
+                                width: "100%",
+                                height: "100%"
+                            }}
                         >
-                            <source src={video2} type="video/mp4" />
+                            <source src={video1} type="video/mp4" />
                         </video>
                     </div>
                     <VStack
