@@ -1,6 +1,7 @@
 import { Center, Text, Image, VStack, Button } from "@chakra-ui/react"
 import BrandText1 from "../../../assets/img/brandText1.png"
 import bgImage from "../../../assets/img/bg-image.png"
+import video1 from "../../../assets/video1.mp4"
 
 const Brand1 = () => {
     return (
@@ -12,6 +13,31 @@ const Brand1 = () => {
             bgPosition={"center center"}
             mixBlendMode={"screen"}
         >
+            <div
+                style={{
+                    backgroundColor: "hsla(0,3%,46%,.164)",
+                    border: "1px solid #580970",
+                    display: "block",
+                    height: "100vh",
+                    margin: "auto",
+                    opacity: 0.5,
+                    overflow: "hidden",
+                    position: "absolute",
+                    top: 0,
+                    width: "100%",
+                    zIndex: -6
+                }}
+            >
+                <video
+                    autoPlay
+                    loop
+                    height={"100%"}
+                    width={"100%"}
+                    style={{ objectFit: "cover" }}
+                >
+                    <source src={video1} type="video/mp4" />
+                </video>
+            </div>
             <VStack gap={"30px"}>
                 <Image
                     src={BrandText1}
