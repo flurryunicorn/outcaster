@@ -5,11 +5,14 @@ import { MotionConfig } from "framer-motion"
 
 import Layout from "components/Layout"
 import RouterSetup from "components/Router/RouterSetup"
-import theme from "theme/themeAdmin"
+import themeAdmin from "theme/themeAdmin"
 
 import "react-toastify/dist/ReactToastify.css"
+import { useState } from "react"
 
 const App = () => {
+    const [theme, setTheme] = useState(themeAdmin)
+
     return (
         <ChakraProvider theme={theme}>
             <Router>
@@ -20,7 +23,7 @@ const App = () => {
                         damping: 7
                     }}
                 >
-                    <Layout>
+                    <Layout setTheme={setTheme}>
                         <RouterSetup />
                     </Layout>
                 </MotionConfig>
