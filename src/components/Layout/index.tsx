@@ -4,7 +4,7 @@ import {
     useColorModeValue,
     useStyleConfig
 } from "@chakra-ui/react"
-import React from "react"
+import React, { useEffect } from "react"
 import type { ReactNode } from "react"
 import { ToastContainer } from "react-toastify"
 
@@ -12,10 +12,17 @@ import Meta from "../Meta"
 
 import { AnimatePresence } from "framer-motion"
 import AdminNavbar from "components/Navbars/AdminNavbar"
+import { useLocation } from "react-router-dom"
+import Sidebar from "components/Sidebar"
+import { hideSidebarPath } from "../../constants"
+import MainNavbar from "components/Navbars/MainNavbar"
+import themeAdmin from "theme/themeAdmin"
+import themeMain from "theme/themeMain"
 // import { routes } from "/Router/routes"
 
 type LayoutProps = {
     children: ReactNode
+    setTheme?: (e: any) => void
 }
 
 const getActiveRoute = (routes) => {
@@ -44,22 +51,47 @@ const getActiveRoute = (routes) => {
     return activeRoute
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, setTheme }: LayoutProps) => {
     const mainPanel = React.createRef<HTMLDivElement>()
     const styles = useStyleConfig("MainPanel")
+    const { pathname } = useLocation()
+
+    useEffect(() => {
+        if (!setTheme) return
+        hideSidebarPath.includes(pathname)
+            ? setTheme(themeAdmin)
+            : setTheme(themeMain)
+    }, [pathname])
 
     return (
         <>
             <Meta />
-
-            <Box ref={mainPanel} __css={styles} w="full">
+            {hideSidebarPath.includes(pathname) ? <></> : <Sidebar />}
+            <Box
+                ref={mainPanel}
+                __css={styles}
+                w={
+                    hideSidebarPath.includes(pathname)
+                        ? "full"
+                        : "calc(100% - 260px)"
+                }
+            >
                 <Portal>
-                    <AdminNavbar
-                        onOpen={() => alert("open")}
-                        logoText={"BetFi Protocol"}
-                        brandText={location.pathname.slice(1)}
-                        fixed={true}
-                    />
+                    {hideSidebarPath.includes(pathname) ? (
+                        <AdminNavbar
+                            onOpen={() => alert("open")}
+                            logoText={"outcasters"}
+                            brandText={location.pathname.slice(1)}
+                            fixed={true}
+                        />
+                    ) : (
+                        <MainNavbar
+                            onOpen={() => alert("open")}
+                            logoText={"outcasters"}
+                            brandText={location.pathname.slice(1)}
+                            fixed={true}
+                        />
+                    )}
                 </Portal>
                 <AnimatePresence mode="wait">{children}</AnimatePresence>
             </Box>

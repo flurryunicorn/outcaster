@@ -1,7 +1,7 @@
 import { Center, Text, Image, VStack, Button } from "@chakra-ui/react"
 import BrandText1 from "../../../assets/img/brandText1.png"
 import bgImage from "../../../assets/img/bg-image.png"
-import video1 from "../../../assets/video1.mp4"
+import video1 from "../../../assets/video.mp4"
 
 const Brand1 = () => {
     return (
@@ -31,9 +31,11 @@ const Brand1 = () => {
                 <video
                     autoPlay
                     loop
-                    height={"100%"}
-                    width={"100%"}
-                    style={{ objectFit: "cover" }}
+                    style={{
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%"
+                    }}
                 >
                     <source src={video1} type="video/mp4" />
                 </video>
